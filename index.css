@@ -9,11 +9,49 @@ body {
     }
 }
 
+.tri-checkbox {
+    flex: 0 0 1.2em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center; /* vertical centering */
+    width: 20px;
+    height: 20px;
+    border: 2px solid #666;
+    border-radius: 4px;
+    background-color: white;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 0.9em; /* scales with surrounding text */
+    cursor: pointer;
+    user-select: none;
+}
+.tri-checkbox.plus {
+    color: green;
+}
+.tri-checkbox.minus {
+    color: red;
+}
+.tri-checkbox.neutral {
+    color: transparent;
+}
+label {
+    margin-right: 0.5em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(6em, 1fr)); 
+    gap: 0.25em 0.75em; /* row-gap col-gap */
+}
+
 #room-group-toggles {
     position: relative;
     top: 0;
     right: 0;
-    padding: 2px 4px 4px;
+    padding: 0 4px;
     display: flex;
     gap: 16px;
     font-size: 1.2em;
@@ -22,6 +60,38 @@ body {
     @media (prefers-color-scheme: dark) {
     background: #333;
     }
+}
+
+.group-title {
+    font-weight: bold;
+    margin-top: 0.5em;
+    display: block;
+}
+
+.RoomGroup-container {
+    flex: 1.5;
+    padding-left: 16px;
+    padding-bottom: 8px;
+}
+.Palace-container {
+    flex: 1;
+    padding-left: 16px;
+    padding-bottom: 8px;
+    background-color: #262626;
+}
+.RoomType-container {
+    flex: 4;
+    padding-left: 16px;
+    padding-bottom: 8px;
+}
+.RoomType-container .checkbox-group {
+    display: block;
+}
+.ExitType-container {
+    flex: 8;
+    padding-left: 16px;
+    padding-bottom: 8px;
+    background-color: #262626;
 }
 
 .rooms {
