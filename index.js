@@ -26,7 +26,12 @@ const groups = {
     { className: 'BossRoom', caption: 'Boss Room', startState: 'neutral' },
     { className: 'DropZone', caption: 'Drop Zone', startState: 'neutral' },
     { className: 'SegmentedRoom', caption: 'Segmented Room', startState: 'neutral' },
-    { className: 'NormalRoom', caption: 'Normal Room', startState: 'neutral' },
+  ],
+  Tag: [
+    { className: 'LongDeadEnd', caption: 'Long Dead End', startState: 'neutral' },
+    { className: 'WalkthroughWall', caption: 'Walkthrough Wall', startState: 'neutral' },
+//    { className: 'Trivial', caption: 'Trivial', startState: 'neutral' },
+    { className: 'Expert', caption: 'Expert', startState: 'neutral' },
   ],
   ExitType: [
     { className: 'DEADEND_EXIT_LEFT', caption: '⇦', startState: 'neutral' },
@@ -96,27 +101,27 @@ function createGroupUI(groupName, classItems) {
   toggleContainer.appendChild(groupDiv);
 }
 
-
 function updateDynamicStyle() {
   let cssRules = '';
 
   Object.entries(groupButtons).forEach(([groupName, items]) => {
     const plusClasses = items
       .filter(({ button }) => button.dataset.state === 'plus')
-      .map(({ className }) => `.${groupName}-${className}`);
-    
+      .map(({ className }) => className);
+
+    const minusClasses = items
+      .filter(({ button }) => button.dataset.state === 'minus')
+      .map(({ className }) => className);
+
     if (plusClasses.length > 0) {
-      items.forEach(({ className }) => {
-        if (!plusClasses.includes(`.${groupName}-${className}`)) {
-          cssRules += `.${groupName}-${className} { display: none; }\n`;
-        }
-      });
+      // Build :not(...) for all plus classes
+      const notSelectors = plusClasses.map(c => `:not(.${groupName}-${c})`).join('');
+      cssRules += `.room${notSelectors} { display: none; }\n`;
     }
 
-    items.forEach(({ className, button }) => {
-      if (button.dataset.state === 'minus') {
-        cssRules += `.${groupName}-${className} { display: none; }\n`;
-      }
+    // Minus always hides explicitly
+    minusClasses.forEach(c => {
+      cssRules += `.${groupName}-${c} { display: none; }\n`;
     });
   });
 

@@ -80,18 +80,20 @@ label {
     background-color: #262626;
 }
 .RoomType-container {
-    flex: 4;
+    flex: 3;
     padding-left: 16px;
     padding-bottom: 8px;
 }
-.RoomType-container .checkbox-group {
-    display: block;
+.Tag-container {
+    flex: 1.2;
+    padding-left: 16px;
+    padding-bottom: 8px;
+    background-color: #262626;
 }
 .ExitType-container {
     flex: 8;
     padding-left: 16px;
     padding-bottom: 8px;
-    background-color: #262626;
 }
 
 .rooms {
