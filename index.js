@@ -14,7 +14,7 @@ const groups = {
     { className: 'VANILLA', caption: 'Vanilla', startState: 'neutral' },
     { className: 'STUBS', caption: 'Stubs', startState: 'neutral' },
     { className: 'V4_0', caption: 'v4.0', startState: 'neutral' },
-    { className: 'V4_4', caption: 'v4.4', startState: 'plus' },
+    { className: 'V5_0', caption: 'v5.0', startState: 'plus' },
   ],
   Palace: [
     { className: 'RegularPalace', caption: 'Regular Palace', startState: 'neutral' },
