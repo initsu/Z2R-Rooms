@@ -11,9 +11,9 @@ const SYMBOLS = {
 // Group definition: groupName => [{className, caption, defaultEnabled}]
 const groups = {
   RoomGroup: [
-    { className: 'VANILLA', caption: 'Vanilla', startState: 'neutral' },
+    { className: 'VANILLA', caption: 'Vanilla', startState: 'plus' },
     { className: 'STUBS', caption: 'Stubs', startState: 'neutral' },
-    { className: 'V4_0', caption: 'v4.0', startState: 'neutral' },
+    { className: 'V4_0', caption: 'v4.0', startState: 'plus' },
     { className: 'V5_0', caption: 'v5.0', startState: 'plus' },
   ],
   Palace: [
@@ -30,8 +30,9 @@ const groups = {
   Tag: [
     { className: 'LongDeadEnd', caption: 'Long Dead End', startState: 'neutral' },
     { className: 'WalkthroughWall', caption: 'Walkthrough Wall', startState: 'neutral' },
-//    { className: 'Trivial', caption: 'Trivial', startState: 'neutral' },
     { className: 'Expert', caption: 'Expert', startState: 'neutral' },
+    { className: 'SGL', caption: 'SGL', startState: 'neutral' },
+    { className: 'NotSGL', caption: 'NotSGL', startState: 'neutral' },
   ],
   ExitType: [
     { className: 'DEADEND_EXIT_LEFT', caption: '⇦', startState: 'neutral' },
